@@ -20,3 +20,10 @@ if docker -v; then
 else
   echo -e "Docker Install failed"
 fi
+
+# Hello World Test
+if docker run hello-world &>/dev/null; then
+  echo -e "Docker - Hello World Tested"
+else
+  echo -e "Docker - Hello World failed"
+fi
