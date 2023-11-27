@@ -1,0 +1,28 @@
+version: '3.7'
+
+services:
+    mysql:
+        image: mysql:latest
+        restart: always
+        volumes:
+            - vol-mysql:/var/lib/mysql
+            - /data/docker-mysql-init:/docker-entrypoint-initdb.d
+        environment:
+            MYSQL_ALLOW_EMPTY_PASSWORD: "no"
+            MYSQL_ROOT_PASSWORD: "PASSWORD123"
+            MYSQL_USER: "admin"
+            MYSQL_PASSWORD: "PASSWORD123"
+            MYSQL_DATABASE: "DB_NAME"
+        ports:
+            - 3306:3306
+
+    phpmyadmin:
+        image: phpmyadmin
+        restart: always
+        links:
+            - mysql:db
+        ports:
+            - 8181:80
+
+volumes:
+    vol-mysql:
