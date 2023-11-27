@@ -1,2 +1,2 @@
-# quick-tools
+# Quick Tools
 Quick Tools
